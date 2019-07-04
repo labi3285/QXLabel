@@ -4,6 +4,5 @@ use_frameworks!
 target 'QXLabel' do
    
 pod 'QXUIKitExtension'
-pod 'YYText', '~> 1.0.7'
 
 end
