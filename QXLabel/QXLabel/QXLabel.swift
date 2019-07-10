@@ -157,12 +157,13 @@ public class QXLabel: UIView {
         for link in links {
             for line in _lines {
                 for run in line.runs {
-                    if link.range.contains(run.range.location) {
+                    if link.range.intersection(run.range) != nil {
                         link.runs.append(run)
                     }
                 }
             }
         }
+        
         _links = links
         for line in _lines {
             for run in line.runs {
@@ -240,19 +241,25 @@ public class QXLabel: UIView {
         }
     }
     public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        if frame.contains(point) {
-            for view in subviews {
-                if view.isUserInteractionEnabled {
-                    if view.frame.contains(point) {
-                        return view
-                    }
-                }
-            }
+        if let view = super.hitTest(point, with: event) {
             if _tryCatchTouchedLink(point, _links) != nil {
                 return self
             }
             return nil
         }
+//        if frame.contains(point) {
+//            for view in subviews {
+//                if view.isUserInteractionEnabled {
+//                    if view.frame.contains(point) {
+//                        return view
+//                    }
+//                }
+//            }
+            if _tryCatchTouchedLink(point, _links) != nil {
+                return self
+            }
+            return nil
+//        }
         return nil
     }
     
