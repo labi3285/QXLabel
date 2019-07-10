@@ -240,17 +240,20 @@ public class QXLabel: UIView {
         }
     }
     public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        for view in subviews {
-            if view.isUserInteractionEnabled {
-                if view.frame.contains(point) {
-                    return view
+        if frame.contains(point) {
+            for view in subviews {
+                if view.isUserInteractionEnabled {
+                    if view.frame.contains(point) {
+                        return view
+                    }
                 }
             }
+            if _tryCatchTouchedLink(point, _links) != nil {
+                return self
+            }
+            return nil
         }
-        if _tryCatchTouchedLink(point, _links) != nil {
-            return self
-        }
-        return superview
+        return nil
     }
     
     fileprivate class Link {

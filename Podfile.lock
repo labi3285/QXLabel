@@ -1,5 +1,5 @@
 PODS:
-  - QXUIKitExtension (0.0.3)
+  - QXUIKitExtension (0.0.6)
 
 DEPENDENCIES:
   - QXUIKitExtension
@@ -9,7 +9,7 @@ SPEC REPOS:
     - QXUIKitExtension
 
 SPEC CHECKSUMS:
-  QXUIKitExtension: 62a61719308b4cba7928f921c6b74fd68a3aa4c7
+  QXUIKitExtension: 719bd29289a322e2d0d3b993127ed50df298c26f
 
 PODFILE CHECKSUM: f7a73430b24c2d3f6f54d3c052183be04fc568f2
 
